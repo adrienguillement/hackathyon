@@ -5,8 +5,8 @@ use Kernel\Connection;
 include("../include/header.php");
 
 $connect=new Connection();
-echo "oui";
-$tablQ=$connect->request('select * from correspondance_PDL where numCategorie=14341016');
+
+$tablQ=$connect->request('select donnees_LRY_enedis.14300186, Date from donnees_LRY_enedis');
 
 var_dump($tablQ);
 

@@ -6,6 +6,8 @@
     <script src="../js/jquery-1.10.2.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>
+    <script src="Chart.js"></script>
+
     <link rel="stylesheet" type="text/css" href="../css/css.css"/>
 </head>
 

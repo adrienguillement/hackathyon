@@ -5,15 +5,14 @@ namespace Kernel;
 class Connection
 {
     public $_pdo;
-    const HOST='149.202.160.203';
+    const HOST='127.0.0.1' ;
     const DB_NAME='enedis';
     const USER='enedis';
     const PW='pwsio';
-    const PORT='80';
 
     public function __construct()
     {
-        $this->_pdo=new \PDO('mysql:host='.self::HOST.';port='.self::PORT.';dbname='.self::DB_NAME, self::USER, self::PW);
+        $this->_pdo=new \PDO('mysql:host='.self::HOST.';dbname='.self::DB_NAME, self::USER, self::PW);
     }
 
     /**
