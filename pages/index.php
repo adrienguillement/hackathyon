@@ -1,12 +1,33 @@
 <?php
-include '../class/kernel/Connection.php';
-use Kernel\Connection;
 
+include ('../class/kernel/Connection.php');
 include("../include/header.php");
+include("../include/footer.php");
+?>
 
-$connect=new Connection();
+<h2> <center> Bienvenue sur l'application de l'équipe : " Ça code pas d'pain ! " </h2> <br/>
+<figure>
+    <center> <img src="http://149.202.160.203/img/logo.png"> </center>
+</figure>
 
-$tablQ=$connect->request('select donnees_LRY_enedis.14300186, Date from donnees_LRY_enedis');
+<div style="height:100px"></div>
 
-var_dump($tablQ);
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Composition de l'équipe</h3>
+    </div>
+    <div class="panel-body">
+        <strong>Chef d'équipe : </strong> Adrien GUILLEMENT </br>
+        <strong> Autre membre : </strong> Théo DRAPPIER</br>
+        <strong>Autre membre : </strong> Alexis GAUVRIT</br>
+        <strong> Autre membre : </strong> Charles POULLAIN
+    </div>
+</div>
+
+<div class="copyright">
+    <p class="right-align">&copy; Signature 2016, Ça code pas d'pain !</p>
+</div>
+<?php
+include("../include/footer.php");
+
 
