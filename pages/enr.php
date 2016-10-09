@@ -46,7 +46,7 @@ foreach ($numCateg as $categ) {
     //$nombreArretChauffage=(43920-$compt);
     //sum = total de kw pour un batiment
 
-    //conso Wh
+    //conso kWh
     $nbConso = $connect->request('SELECT nbConso FROM conso WHERE numBat="' . $categ[0] . '"');
     foreach ($nbConso as $conso) {
         $conso = intval($conso[0]);
