@@ -28,18 +28,14 @@ foreach($numCateg as $categ) {
     //sum = total de kw pour un batiment
 
     //conso Wh
-    $nbConso=$connect->request('SELECT nbConso FROM conso');
-    $consoEnerg=[];
+    $nbConso=$connect->request('SELECT nbConso FROM conso WHERE numBat="'.$categ[0].'"');
     foreach ($nbConso as $conso){
         $conso = intval($conso[0]);
         $consoHeures=($conso/60);
-        $consoEnerg[]=$sum/$consoHeures;
+        $consoEnerg=$sum/$consoHeures;
     }
     var_dump($consoEnerg);
-
 }
-
-
 
 //tableau
 $html = '<table class="table table-striped table-hover ">';
