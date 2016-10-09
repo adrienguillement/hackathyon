@@ -27,7 +27,3 @@ include("../include/footer.php");
 <div class="copyright">
     <p class="right-align">&copy; Signature 2016, Ça code pas d'pain !</p>
 </div>
-<?php
-include("../include/footer.php");
-
-
