@@ -1,9 +1,10 @@
 <?php
 include ('../class/kernel/Connection.php');
 include("../include/header.php");
-include("../include/footer.php");
+
 
 ?>
+<div style="height:110px"></div>
 
 <h2> <center> Bienvenue sur l'application de l'équipe : " Ça code pas d'pain ! " </h2> <br/>
 <figure>
@@ -24,3 +25,4 @@ include("../include/footer.php");
 <div class="copyright">
     <p class="right-align">&copy; Signature 2016, Ça code pas d'pain !</p>
 </div>
+
