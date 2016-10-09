@@ -5,7 +5,6 @@ $connect=new Connection();
 include("../include/header.php");
 if(isset($_POST["month"]))
 {
-    var_dump($_POST);
     $building=$_POST["building"];
     $month=$_POST["month"];
     $date = explode('/',$month);
