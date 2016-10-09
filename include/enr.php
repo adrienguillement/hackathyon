@@ -29,12 +29,13 @@ foreach($numCateg as $categ) {
 
     //conso Wh
     $nbConso=$connect->request('SELECT nbConso FROM conso');
+    $consoEnerg=[];
     foreach ($nbConso as $conso){
         $conso = intval($conso[0]);
         $consoHeures=($conso/60);
-        $consoEnerg=$sum/$consoHeures;
-        var_dump($consoEnerg);
+        $consoEnerg[]=$sum/$consoHeures;
     }
+    var_dump($consoEnerg);
 
 }
 
