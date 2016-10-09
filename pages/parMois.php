@@ -4,7 +4,19 @@ include '../include/function.php';
 use Kernel\Connection;
 $connect=new Connection();
 include("../include/header.php");
-if(isset($_POST["month"])==null){
+if(isset($_POST["month"]))
+{
+    var_dump($_POST);
+    $building=$_POST["building"];
+    $month=$_POST["month"];
+    $date = explode('/',$month);
+
+    $tablQ=$connect->request('select donnees_LRY_enedis.'.$building.', Date from donnees_LRY_enedis WHERE STR_TO_DATE(`Date`, "%d/%m/%Y %k:%i:00") BETWEEN "'.$date[0].'" AND "'.$date[1].'"');
+    $sizeTableQ = sizeof($tablQ);
+
+}
+else{
+
     $categorie = $connect->request('SELECT * from correspondance_PDL');
 
     echo '<form action="./parMois.php" method="POST">
@@ -21,6 +33,7 @@ if(isset($_POST["month"])==null){
         <option value="2016-08-01/2016-08-31">Aout 2016</option>
         <option value="2016-09-01/2016-09-31">Septembre 2016</option>
     </select><br>
+    <input type="hidden" name="nbGraph" value="1"/>
     <label>Rechercher un bâtiment </label><input type="text" id="realtxt" onkeyup="javascript:searchSel();"/>
     <select id="realitems" name="building">
     <option value="test">- - -</option>';
@@ -38,14 +51,6 @@ if(isset($_POST["month"])==null){
     echo "</select>
     <button type=\"submit\">GO!</button>
     </form>";
-}
-else{
-    $building=$_POST["building"];
-    $month=$_POST["month"];
-    $date = explode('/',$month);
-
-    $tablQ=$connect->request('select donnees_LRY_enedis.'.$building.', Date from donnees_LRY_enedis WHERE STR_TO_DATE(`Date`, "%d/%m/%Y %k:%i:00") BETWEEN "'.$date[0].'" AND "'.$date[1].'"');
-    $sizeTableQ = sizeof($tablQ);
 }
 include("../include/footer.php");
 
