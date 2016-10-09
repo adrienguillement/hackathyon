@@ -33,7 +33,7 @@ if(isset($_POST["surfacePP"])==null){
     <input type="text" name="surfacePP" /></br>
     <label>Sélectionner le nombres d\'éoliennes :</label>
     <input type="text" name="nbEolienne" /></br>
-    <button type="submit">GO!</button>
+    <button type="submit">Calculer</button>
     </form>';
     echo $html;
 }
