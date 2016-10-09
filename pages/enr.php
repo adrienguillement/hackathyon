@@ -4,27 +4,28 @@ include("../include/header.php");
 include '../class/kernel/Connection.php';
 use Kernel\Connection;
 
-$prixEolien = 8.2; //c€.kWh
-$prixPhotovol = 46; //c€.kWh
+if(isset($_POST['building'])){
+    echo '<form action="./parMois.php" method="POST">
+    <label>Rechercher un bâtiment </label><input type="text" id="realtxt" onkeyup="javascript:searchSel();"/>
+    <select id="realitems" name="building">
+    <option value="test">- - -</option>';
+    for($i=0;$i<sizeof($categorie);$i++)
+    {
+        if($categorie[$i][2]=='null')
+        {
+            echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'">'.$categorie[$i][0].'</option>';
+        }
+        else
+        {
+            echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'">'.$categorie[$i][2].'</option>';
+        }
+    }
+    echo "</select>
+    <button type=\"submit\">GO!</button>
+    </form>";
+}
 
-//tableau
-$html = '<table class="table table-striped table-hover ">';
-$html .= '<thead>';
-$html .= '<th>Filière Energétique</th><th>Prix (en centimes d\'€/kWh)</th>';
-$html .= '</thead>';
-$html .= '<tbody>';
-$html .= '<tr>';
-$html .= '<td>' . 'Eolien' . '</td>';
-$html .= '<td>' . $prixEolien . '</td>';
-$html .= '</tr>';
-$html .= '<tr>';
-$html .= '<td>' . 'Photovoltaique' . '</td>';
-$html .= '<td>' . $prixPhotovol . '</td>';
-$html .= '</tr>';
-$html .= '</tbody>';
-$html .= '</table>';
 
-echo $html;
 //Calcul des couts
 if(isset($_POST["surfacePP"])==null){
     $html='<form action="./enr.php" method="POST">
