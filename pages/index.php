@@ -1,9 +1,6 @@
 <?php
-include '../class/kernel/Connection.php';
-use Kernel\Connection;
-
+include ('../class/kernel/Connection.php');
 include("../include/header.php");
-//include("../include/enr.php");
+include("../include/footer.php");
 
-$connect=new Connection();
 
