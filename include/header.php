@@ -38,7 +38,7 @@
                         </ul>
                     </li>
                     <!--<li><a href="../pages/comparaison.php">Comparaison</a></li>-->
-                    <li><a href="../include/enr.php">Tableau Energie</a></li>
+                    <li><a href="../pages/enr.php">Tableau Energie</a></li>
                     <!--<li><a href="#">Tableau</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
