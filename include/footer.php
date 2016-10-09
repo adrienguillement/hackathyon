@@ -3,7 +3,7 @@
 
 <div id="container" style="width: 75%;">
     <canvas id="canvas"></canvas>
-    </div>
+</div>
 <!-- Tags for the seccond dropdown list, and for text-content -->
 <span id="slist2"></span> <div id="scontent"></div>
 
@@ -25,7 +25,7 @@
 <script>
     //script js using chart js to create graph
     var barChartData = {
-        labels: [ <?php for($i=0;$i<43920;$i++) //x axe data
+        labels: [ <?php for($i=0;$i<sizeof($tablQ);$i++) //x axe data
         {
             echo '"'.$tablQ[$i][1].'",';
         }?>],
@@ -34,7 +34,7 @@
             type: 'bar',
             backgroundColor: "rgba(0,255,0,0.5)",
             data: [<?php //y axe data
-                for($i=0;$i<43920;$i++)
+                for($i=0;$i<sizeof($tablQ);$i++)
                 {
                     echo $tablQ[$i][0].',';
                 }

@@ -34,7 +34,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Statistiques<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Par années</a></li>
-                            <li><a href="#">Par mois</a></li>
+                            <li><a href="../pages/parMois.php">Par mois</a></li>
                             <li><a href="#">Par jours</a></li>
                         </ul>
                     </li>
@@ -52,9 +52,6 @@
                             <li><a href="#">One more separated link</a></li>
                         </ul>
                     </li>-->
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Se déconnecter</a></li>
                 </ul>
             </div>
         </div>
