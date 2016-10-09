@@ -15,14 +15,29 @@ $numCateg=$connect->request('SELECT numCategorie from correspondance_PDL');
 foreach($numCateg as $categ) {
     $bat = $connect->request('SELECT donnees_LRY_enedis.' . $categ[0] . ' from donnees_LRY_enedis ORDER BY `donnees_LRY_enedis`.`id` ASC');
     $sum=0;
+    $compt=0;
         foreach ($bat as $val ) {
             $val = intval($val[0]);
+            //total de valeurs supérieur à 0 (chauffage en marche)
+    /*       if ($val!='0'){
+                $compt++;
+            }*/
             $sum += $val;
-
         }
-     //   var_dump($categ[0]);
-   // var_dump($sum);
+    //$nombreArretChauffage=(43920-$compt);
+    //sum = total de kw pour un batiment
+
+    //conso Wh
+    $nbConso=$connect->request('SELECT nbConso FROM conso');
+    foreach ($nbConso as $conso){
+        $conso = intval($conso[0]);
+        $consoHeures=($conso/60);
+        $consoEnerg=$sum/$consoHeures;
+        var_dump($consoEnerg);
+    }
+
 }
+
 
 
 //tableau
