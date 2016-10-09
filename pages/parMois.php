@@ -1,6 +1,5 @@
 <?php
 include '../class/kernel/Connection.php';
-include '../include/function.php';
 use Kernel\Connection;
 $connect=new Connection();
 include("../include/header.php");
@@ -10,15 +9,11 @@ if(isset($_POST["month"]))
     $building=$_POST["building"];
     $month=$_POST["month"];
     $date = explode('/',$month);
-
     $tablQ=$connect->request('select donnees_LRY_enedis.'.$building.', Date from donnees_LRY_enedis WHERE STR_TO_DATE(`Date`, "%d/%m/%Y %k:%i:00") BETWEEN "'.$date[0].'" AND "'.$date[1].'"');
     $sizeTableQ = sizeof($tablQ);
-
 }
 else{
-
     $categorie = $connect->request('SELECT * from correspondance_PDL');
-
     echo '<form action="./parMois.php" method="POST">
     <label>Sélectionner le mois :</label>
     <select name="month">
@@ -53,4 +48,3 @@ else{
     </form>";
 }
 include("../include/footer.php");
-

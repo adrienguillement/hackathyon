@@ -40,5 +40,8 @@ class Connection
     {
         return $this->getQuery($table)->fetch(\PDO::FETCH_NUM);
     }
-
+    public function exec($request)
+    {
+        $this->_pdo->exec($request);
+    }
 }

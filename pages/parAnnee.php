@@ -1,22 +1,16 @@
 <?php
 include '../class/kernel/Connection.php';
-include '../include/function.php';
 use Kernel\Connection;
 $connect=new Connection();
 include("../include/header.php");
-
 if(isset($_POST['building']))
 {
-
     $building=$_POST["building"];
-
     $tablQ=$connect->request('select donnees_LRY_enedis.'.$building.', Date from donnees_LRY_enedis');
     $sizeTableQ = sizeof($tablQ);
-
 }
 else{
     $categorie = $connect->request('SELECT * from correspondance_PDL');
-
     echo '<form action="./parAnnee.php" method="POST">
     <label>Rechercher un bâtiment </label><input type="text" id="realtxt" onkeyup="javascript:searchSel();"/>
     <select id="realitems" name="building">
@@ -37,4 +31,3 @@ else{
     </form>";
 }
 include("../include/footer.php");
-
