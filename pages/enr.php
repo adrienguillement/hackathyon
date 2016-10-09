@@ -47,7 +47,7 @@ foreach ($numCateg as $categ) {
     //sum = total de kw pour un batiment
 
     //conso kWh
-    $nbConso = $connect->request('SELECT nbConso FROM conso WHERE numBat="' . $categ[0] . '"');
+    $nbConso = $connect->request('SELECT nbMinutesConso FROM conso WHERE numBat="' . $categ[0] . '"');
     foreach ($nbConso as $conso) {
         $conso = intval($conso[0]);
         $consoHeures = ($conso / 60);

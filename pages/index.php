@@ -17,8 +17,7 @@ include("../include/footer.php");
         <h3 class="panel-title">Composition de l'équipe</h3>
     </div>
     <div class="panel-body">
-        <strong>Chef d'équipe : </strong> Adrien GUILLEMENT
-        <strong> Autres membres : </strong> Théo DRAPPIER, Alexis GAUVRIT, Charles POULLAIN
+        <strong> Membres : </strong> Adrien GUILLEMENT, Théo DRAPPIER, Alexis GAUVRIT, Charles POULLAIN
     </div>
 </div>
 
