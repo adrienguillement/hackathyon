@@ -35,7 +35,6 @@
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Par années</a></li>
                             <li><a href="../pages/parMois.php">Par mois</a></li>
-                            <li><a href="#">Par jours</a></li>
                         </ul>
                     </li>
                     <li><a href="../include/enr.php">Tableau Energie</a></li>

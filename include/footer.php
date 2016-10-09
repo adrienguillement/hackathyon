@@ -1,6 +1,5 @@
 <?php
 ?>
-
 <div id="container" style="width: 75%;">
     <canvas id="canvas"></canvas>
 </div>
@@ -21,7 +20,8 @@
             }
         if (input == '')
             output[0].selected = true;
-    }</script>
+    }
+</script>
 <script>
     //script js using chart js to create graph
     var barChartData = {
@@ -32,7 +32,7 @@
         datasets: [{
             label: 'Consomation',
             type: 'bar',
-            backgroundColor: "rgba(0,255,0,0.5)",
+            backgroundColor: "rgba(8, 188, 255,1)",
             data: [<?php //y axe data
                 for($i=0;$i<sizeof($tablQ);$i++)
                 {
@@ -52,7 +52,7 @@
                 elements: {
                     rectangle: {
                         borderWidth: 2,
-                        borderColor: 'rgb(0, 255, 0)',
+                        borderColor: 'rgb(8, 188, 255)',
                         borderSkipped: 'bottom'
                     }
                 },
@@ -89,5 +89,4 @@
     };
 </script>
 </body>
-
 </html>

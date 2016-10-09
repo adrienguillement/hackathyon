@@ -1,11 +1,12 @@
 <?php
 include '../class/kernel/Connection.php';
+include '../include/function.php';
 use Kernel\Connection;
 $connect=new Connection();
 include("../include/header.php");
 if(isset($_POST["month"])==null){
     $categorie = $connect->request('SELECT * from correspondance_PDL');
-    var_dump($categorie);
+
     echo '<form action="./parMois.php" method="POST">
     <label>Sélectionner le mois :</label>
     <select name="month">
@@ -19,8 +20,8 @@ if(isset($_POST["month"])==null){
         <option value="2016-07-01/2016-07-31">Juillet 2016</option>
         <option value="2016-08-01/2016-08-31">Aout 2016</option>
         <option value="2016-09-01/2016-09-31">Septembre 2016</option>
-    </select>
-    Rechercher un bâtiment <input type="text" id="realtxt" onkeyup="javascript:searchSel();"/>
+    </select><br>
+    <label>Rechercher un bâtiment </label><input type="text" id="realtxt" onkeyup="javascript:searchSel();"/>
     <select id="realitems" name="building">
     <option value="test">- - -</option>';
     for($i=0;$i<sizeof($categorie);$i++)
