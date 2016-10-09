@@ -30,3 +30,4 @@ foreach($bat as $row){
     $html.='</tr>';
 }
 $html.='</table>';
+var_dump($bat);
