@@ -23,6 +23,6 @@ include("../include/header.php");
 </div>
 
 <div class="copyright">
-    <p class="right-align">&copy; Signature 2016, Ça code pas d'pain !</p>
+    <p class="right-align">Signature 2016, Ça code pas d'pain !</p>
 </div>
 
