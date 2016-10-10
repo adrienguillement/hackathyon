@@ -437,7 +437,7 @@
                 ctx.fillStyle = 'rgba(225,225,225,0.3)';
                 ctx.lineWidth = 5;
                 ctx.fillRect(startX, yAxis.top, rectWidth, yAxis.bottom - yAxis.top);
-            }
+             }
 
             ctx.rect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
             ctx.clip();

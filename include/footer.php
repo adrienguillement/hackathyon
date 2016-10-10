@@ -1,11 +1,12 @@
+<?php
+?>
 <div id="container" style="width: 75%;">
     <canvas id="canvas"></canvas>
 </div>
 <!-- Tags for the seccond dropdown list, and for text-content -->
 <span id="slist2"></span> <div id="scontent"></div>
 
-<script>
-    document.getElementById('realtxt').onkeyup = searchSel;
+<script>document.getElementById('realtxt').onkeyup = searchSel;
     function searchSel()
     {
         var input = document.getElementById('realtxt').value.toLowerCase();
@@ -31,7 +32,7 @@
         datasets: [{
             label: 'Consomation',
             type: 'bar',
-            backgroundColor: "rgba(0,255,0,0.5)",
+            backgroundColor: "rgba(8, 188, 255,1)",
             data: [<?php //y axe data
                 for($i=0;$i<sizeof($tablQ);$i++)
                 {
@@ -51,7 +52,7 @@
                 elements: {
                     rectangle: {
                         borderWidth: 2,
-                        borderColor: 'rgb(0, 255, 0)',
+                        borderColor: 'rgb(8, 188, 255)',
                         borderSkipped: 'bottom'
                     }
                 },
@@ -88,5 +89,4 @@
     };
 </script>
 </body>
-
 </html>
