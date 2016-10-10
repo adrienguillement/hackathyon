@@ -12,7 +12,7 @@ if(isset($_POST['building']))
 else{
     $categorie = $connect->request('SELECT * from correspondance_PDL');
     echo '<form action="./parAnnee.php" method="POST">
-    <label>Rechercher un bâtiment </label><input type="text" id="realtxt" onkeyup="javascript:searchSel();"/>
+    <label class="text-success" >Rechercher un bâtiment :</label><input type="text" id="realtxt" onkeyup="javascript:searchSel();"/>
     <select id="realitems" name="building">
     <option value="test">- - -</option>';
     for($i=0;$i<sizeof($categorie);$i++)
@@ -27,7 +27,7 @@ else{
         }
     }
     echo "</select>
-    <button type=\"submit\">GO!</button>
+    <button class=\"btn btn-success\" type=\"submit\">GO</button>
     </form>";
 }
 include("../include/footer.php");

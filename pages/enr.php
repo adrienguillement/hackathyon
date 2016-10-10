@@ -11,9 +11,15 @@ $connect=new Connection();
 if(!isset($_POST['building']) && !isset($_POST['surfacePP'])){
     $categorie = $connect->request('SELECT * from correspondance_PDL');
     echo '<form action="./enr.php" method="POST">
-    <label>Rechercher un bâtiment </label><input type="text" id="realtxt" onkeyup="javascript:searchSel();"/>
+<div class="form-group has-success">
+    <label class="control-label">Rechercher un bâtiment  :</label><input class="form-control" type="text" id="realtxt" onkeyup="javascript:searchSel();"/>
+    </div>
+    
+
     <select id="realitems" name="building">
     <option value="test">- - -</option>';
+
+
     for($i=0;$i<sizeof($categorie);$i++)
     {
         if($categorie[$i][2]=='null')
@@ -25,21 +31,21 @@ if(!isset($_POST['building']) && !isset($_POST['surfacePP'])){
             echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'">'.$categorie[$i][2].'</option>';
         }
     }
-    echo "</select>
-    <button type=\"submit\">GO!</button>
-    </form>";
+    echo '</select>
+    <button class="btn btn-success" type="submit">GO</button>
+    </form>';
 }
 else
 {
     //Calcul des couts
     if(isset($_POST["surfacePP"])==null){
         $html='<form action="./enr.php" method="POST">
-    <label>Sélectionner la surface de panneaux photovoltaîque :</label>
+    <label class="text-success">Sélectionner la surface de panneaux photovoltaîque :</label>
     <input type="text" name="surfacePP" /></br>
-    <label>Sélectionner le nombres d\'éoliennes :</label>
+    <label  class="text-success">Sélectionner le nombres d\'éoliennes :</label>
     <input type="text" name="nbEolienne" /></br>
     <input type="hidden" name="building" value="'.$_POST['building'].'"/></br>
-    <button type="submit">Calculer</button>
+    <button class="btn btn-success" type="submit">Calculer</button>
     </form>';
         echo $html;
     }
