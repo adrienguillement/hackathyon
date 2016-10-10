@@ -1,3 +1,5 @@
+<?php
+?>
 <div id="container" style="width: 75%;">
     <canvas id="canvas"></canvas>
 </div>
@@ -86,3 +88,5 @@
         });
     };
 </script>
+</body>
+</html>

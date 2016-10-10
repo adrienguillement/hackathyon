@@ -40,6 +40,7 @@
                         </ul>
                     </li>
                     <li><a href="../pages/enr.php"><strong>Tableau Energie</strong></a></li>
+
                 </ul>
             </div>
         </div>

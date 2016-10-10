@@ -5,7 +5,6 @@ $connect=new Connection();
 include("../include/header.php");
 if(isset($_POST["month"]))
 {
-    var_dump($_POST);
     $building=$_POST["building"];
     $month=$_POST["month"];
     $date = explode('/',$month);
@@ -28,7 +27,6 @@ else{
         <option value="2016-08-01/2016-08-31">Aout 2016</option>
         <option value="2016-09-01/2016-09-31">Septembre 2016</option>
     </select><br>
-    <input type="hidden" name="nbGraph" value="1"/>
     <label>Rechercher un bâtiment </label><input type="text" id="realtxt" onkeyup="javascript:searchSel();"/>
     <select id="realitems" name="building">
     <option value="test">- - -</option>';
