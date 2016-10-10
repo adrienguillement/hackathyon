@@ -14,6 +14,7 @@ if(isset($_POST["month"]))
 else{
     $categorie = $connect->request('SELECT * from correspondance_PDL');
     echo '<form action="./parMois.php" method="POST">
+<div class="col-lg-3 col-lg-offset-4">  
     <label class="text-success">Sélectionner le mois :</label>
     <select name="month">
         <option value="2015-12-01/2015-12-31">Décembre 2015</option>
@@ -27,10 +28,16 @@ else{
         <option value="2016-08-01/2016-08-31">Aout 2016</option>
         <option value="2016-09-01/2016-09-31">Septembre 2016</option>
     </select><br>
-    <div style="height:10px"></div>
-    <label class="text-success">Rechercher un bâtiment :</label><input type="text" id="realtxt" onkeyup="javascript:searchSel();"/> 
+    <div style="height:20px"></div>
+    
+    <div class="form-group has-success">
+    <label class="text-success">Rechercher un bâtiment :</label><input class="form-control" type="text" id="realtxt" onkeyup="javascript:searchSel();"/> 
+  <div style="height:20px"></div>
     <select id="realitems" name="building">
-    <option value="test">- - -</option>';
+    <option value="test">- - -</option>
+      </div>
+    </div>';
+
     for($i=0;$i<sizeof($categorie);$i++)
     {
         if($categorie[$i][2]=='null')

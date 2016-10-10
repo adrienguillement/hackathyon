@@ -11,8 +11,11 @@ $connect=new Connection();
 if(!isset($_POST['building']) && !isset($_POST['surfacePP'])){
     $categorie = $connect->request('SELECT * from correspondance_PDL');
     echo '<form action="./enr.php" method="POST">
+<div class="col-lg-3 col-lg-offset-4">  
 <div class="form-group has-success">
     <label class="control-label">Rechercher un bâtiment  :</label><input class="form-control" type="text" id="realtxt" onkeyup="javascript:searchSel();"/>
+         <div style="height:5px"></div>
+
     </div>
     
 
@@ -40,13 +43,17 @@ else
     //Calcul des couts
     if(isset($_POST["surfacePP"])==null){
         $html='<form action="./enr.php" method="POST">
+<div class="col-lg-3 col-lg-offset-4"> 
+ <div class="form-group has-success">
     <label class="text-success">Sélectionner la surface de panneaux photovoltaîque :</label>
-    <input type="text" name="surfacePP" /></br>
+    <input class="form-control" type="text" name="surfacePP" /></br>
     <label  class="text-success">Sélectionner le nombres d\'éoliennes :</label>
-    <input type="text" name="nbEolienne" /></br>
+    <input class="form-control" type="text" name="nbEolienne" /></br>
     <input type="hidden" name="building" value="'.$_POST['building'].'"/></br>
     <button class="btn btn-success" type="submit">Calculer</button>
-    </form>';
+    </form>
+    </div>
+    </div>';
         echo $html;
     }
     else{
