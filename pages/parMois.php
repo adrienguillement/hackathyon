@@ -8,7 +8,15 @@ if(isset($_POST["month"]))
     $building=$_POST["building"];
     $month=$_POST["month"];
     $date = explode('/',$month);
-    $tablQ=$connect->request('select donnees_LRY_enedis.'.$building.', Date from donnees_LRY_enedis WHERE STR_TO_DATE(`Date`, "%d/%m/%Y %k:%i:00") BETWEEN "'.$date[0].'" AND "'.$date[1].'"');
+
+    $building = explode("/",$building);
+
+    echo 'Nom du bâtiment : '.$building[1];
+
+
+    $month = explode('-',$month);
+    echo '<br> Mois : '.$month[1].'/'.$month[0];
+    $tablQ=$connect->request('select donnees_LRY_enedis.'.$building[0].', Date from donnees_LRY_enedis WHERE STR_TO_DATE(`Date`, "%d/%m/%Y %k:%i:00") BETWEEN "'.$date[0].'" AND "'.$date[1].'"');
     $sizeTableQ = sizeof($tablQ);
 }
 else{
@@ -34,11 +42,11 @@ else{
     {
         if($categorie[$i][2]=='null')
         {
-            echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'">'.$categorie[$i][0].'</option>';
+            echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'/'.$categorie[$i][2].'">'.$categorie[$i][0].'</option>';
         }
         else
         {
-            echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'">'.$categorie[$i][2].'</option>';
+            echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'/'.$categorie[$i][2].'">'.$categorie[$i][2].'</option>';
         }
     }
     echo "</select>

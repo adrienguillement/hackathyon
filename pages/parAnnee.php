@@ -6,7 +6,9 @@ include("../include/header.php");
 if(isset($_POST['building']))
 {
     $building=$_POST["building"];
-    $tablQ=$connect->request('select donnees_LRY_enedis.'.$building.', Date from donnees_LRY_enedis');
+    $building = explode("/",$building);
+    echo 'Nom du bâtiment : '.$building[1];;
+    $tablQ=$connect->request('select donnees_LRY_enedis.'.$building[0].', Date from donnees_LRY_enedis');
     $sizeTableQ = sizeof($tablQ);
 }
 else{
@@ -19,11 +21,11 @@ else{
     {
         if($categorie[$i][2]=='null')
         {
-            echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'">'.$categorie[$i][0].'</option>';
+            echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'/'.$categorie[$i][2].'">'.$categorie[$i][0].'</option>';
         }
         else
         {
-            echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'">'.$categorie[$i][2].'</option>';
+            echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'/'.$categorie[$i][2].'">'.$categorie[$i][2].'</option>';
         }
     }
     echo "</select>

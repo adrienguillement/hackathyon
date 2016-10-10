@@ -1,6 +1,8 @@
 <?php
 include ('../class/kernel/Connection.php');
 include("../include/header.php");
+
+
 ?>
 <div style="height:110px"></div>
 
@@ -23,3 +25,4 @@ include("../include/header.php");
 <div class="copyright">
     <p class="right-align">&copy; Signature 2016, Ça code pas d'pain !</p>
 </div>
+
