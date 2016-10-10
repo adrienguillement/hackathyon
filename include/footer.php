@@ -1,58 +1,31 @@
 <?php
 ?>
-
 <div id="container" style="width: 75%;">
     <canvas id="canvas"></canvas>
 </div>
-Select category: <select name="slist1" onchange="SList.getSelect('slist2', this.value);">
-    <option>- - -</option>
-    <?php
-    for($i=0;$i<sizeof($categorie);$i++){
-        echo "<option value='".$categorie[$i][0]."'>".$categorie[$i][0]."</option>";
-    }
-
-    ?>
-</select>
 <!-- Tags for the seccond dropdown list, and for text-content -->
 <span id="slist2"></span> <div id="scontent"></div>
 
-<script><!--
-    /* Script Double Select Dropdown List, from: coursesweb.net/javascript/ */
-    var SList = new Object();             // JS object that stores data for options
+<script>document.getElementById('realtxt').onkeyup = searchSel;
+    function searchSel()
+    {
+        var input = document.getElementById('realtxt').value.toLowerCase();
 
-    // HERE replace the value with the text you want to be displayed near Select
-    var txtsl2 = 'Select Category:';
-
-
-    /* From here no need to modify */
-
-    // function to get the dropdown list, or content
-    SList.getSelect = function(slist, option) {
-        document.getElementById('scontent').innerHTML = '';           // empty option-content
-
-        if(SList[slist][option]) {
-            // if option from the last Select, add text-content, else, set dropdown list
-            if(slist == 'scontent') document.getElementById('scontent').innerHTML = SList[slist][option];
-            else if(slist == 'slist2') {
-                var addata = '<option>- - -</option>';
-                for(var i=0; i<SList[slist][option].length; i++) {
-                    addata += '<option value="'+SList[slist][option][i]+'">'+SList[slist][option][i]+'</option>';
-                }
-
-                document.getElementById('slist2').innerHTML = txtsl2+' <select name="slist2" onchange="SList.getSelect(\'scontent\', this.value);">'+addata+'</select>';
+        len = input.length;
+        output = document.getElementById('realitems').options;
+        for(var i=0; i<output.length; i++)
+            if (output[i].text.toLowerCase().indexOf(input) != -1 ){
+                output[i].selected = true;
+                break;
             }
-        }
-        else if(slist == 'slist2') {
-            // empty the tag for 2nd select list
-            document.getElementById('slist2').innerHTML = '';
-        }
+        if (input == '')
+            output[0].selected = true;
     }
-    --></script>
-
+</script>
 <script>
     //script js using chart js to create graph
     var barChartData = {
-        labels: [ <?php for($i=0;$i<43920;$i++) //x axe data
+        labels: [ <?php for($i=0;$i<sizeof($tablQ);$i++) //x axe data
         {
             echo '"'.$tablQ[$i][1].'",';
         }?>],
@@ -61,7 +34,7 @@ Select category: <select name="slist1" onchange="SList.getSelect('slist2', this.
             type: 'bar',
             backgroundColor: "rgba(8, 188, 255,1)",
             data: [<?php //y axe data
-                for($i=0;$i<43920;$i++)
+                for($i=0;$i<sizeof($tablQ);$i++)
                 {
                     echo $tablQ[$i][0].',';
                 }
@@ -116,5 +89,4 @@ Select category: <select name="slist1" onchange="SList.getSelect('slist2', this.
     };
 </script>
 </body>
-
 </html>
