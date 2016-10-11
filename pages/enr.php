@@ -33,7 +33,14 @@ else
 {
     //Calcul des couts
 
-    $html='<form action="./enr.php" method="POST">
+    $nameBuilding = $connect->request('SELECT building_name from correspondance_PDL where numCategorie="'.$_POST['building'].'"');
+    if($nameBuilding[0][0]=='null'){
+        $build = $_POST['building'];
+    }else{
+        $build=$nameBuilding[0][0];
+    }
+    $html='<center><label>Tableau d\'énergie pour le bâtiment : '.$build.'</label><hr /></center>
+            <form action="./enr.php" method="POST">
             <label>Sélectionner la surface de panneaux photovoltaïques :</label>
             <input type="text" name="surfacePP" /></br>
             <label>Sélectionner le nombres d\'éoliennes :</label>

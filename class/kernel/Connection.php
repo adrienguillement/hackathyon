@@ -5,7 +5,7 @@ namespace Kernel;
 class Connection
 {
     public $_pdo;
-    const HOST='127.0.0.1' ;
+    const HOST='149.202.160.203' ;
     const DB_NAME='enedis_test_v2';
     const USER='enedis';
     const PW='pwsio';
