@@ -6,7 +6,7 @@ class Connection
 {
     public $_pdo;
     const HOST='127.0.0.1' ;
-    const DB_NAME='enedis';
+    const DB_NAME='enedis_test_v2';
     const USER='enedis';
     const PW='pwsio';
 
