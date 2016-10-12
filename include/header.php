@@ -7,10 +7,6 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>
     <script src="../js/Chart.js"></script>
-    <script src="../js/Chart.Zoom.js"></script>
-    <script src="../node_modules/chart.js/dist/Chart.bundle.js"></script>
-    <script src="../node_modules/hammerjs/hammer.min.js"></script>
-
 
     <link rel="stylesheet" type="text/css" href="../css/css.css"/>
 </head>
