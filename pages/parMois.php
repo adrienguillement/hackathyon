@@ -8,13 +8,21 @@ if(isset($_POST["month"]))
     $building=$_POST["building"];
     $month=$_POST["month"];
     $date = explode('/',$month);
-    $tablQ=$connect->request('select donnees_LRY_enedis.'.$building.', Date from donnees_LRY_enedis WHERE STR_TO_DATE(`Date`, "%d/%m/%Y %k:%i:00") BETWEEN "'.$date[0].'" AND "'.$date[1].'"');
+
+    $building = explode("/",$building);
+
+    echo 'Nom du bâtiment : '.$building[1];
+
+
+    $month = explode('-',$month);
+    echo '<br> Mois : '.$month[1].'/'.$month[0];
+    $tablQ=$connect->request('select donnees_LRY_enedis.'.$building[0].', Date from donnees_LRY_enedis WHERE STR_TO_DATE(`Date`, "%d/%m/%Y %k:%i:00") BETWEEN "'.$date[0].'" AND "'.$date[1].'"');
     $sizeTableQ = sizeof($tablQ);
 }
 else{
     $categorie = $connect->request('SELECT * from correspondance_PDL');
-    echo '<form action="./parMois.php" method="POST">
-    <label>Sélectionner le mois :</label>
+    echo '<form action="./parMois.php" method="POST"><div class="col-lg-3 col-lg-offset-4">
+    <label class="control-label">Sélectionner le mois :</label>
     <select name="month">
         <option value="2015-12-01/2015-12-31">Décembre 2015</option>
         <OPTION value="2016-01-01/2016-01-31">Janvier 2016</option>
@@ -26,23 +34,25 @@ else{
         <option value="2016-07-01/2016-07-31">Juillet 2016</option>
         <option value="2016-08-01/2016-08-31">Aout 2016</option>
         <option value="2016-09-01/2016-09-31">Septembre 2016</option>
-    </select><br>
-    <label>Rechercher un bâtiment </label><input type="text" id="realtxt" onkeyup="javascript:searchSel();"/>
+    </select><div style="height: 5px"></div>
+    <div class="form-group has-success">
+    <label class="control-label">Rechercher un bâtiment </label><input type="text" id="realtxt" onkeyup="javascript:searchSel();" class="form-control"/></div>
     <select id="realitems" name="building">
     <option value="test">- - -</option>';
     for($i=0;$i<sizeof($categorie);$i++)
     {
         if($categorie[$i][2]=='null')
         {
-            echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'">'.$categorie[$i][0].'</option>';
+            echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'/'.$categorie[$i][2].'">'.$categorie[$i][0].'</option>';
         }
         else
         {
-            echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'">'.$categorie[$i][2].'</option>';
+            echo '<option name="'.$categorie[$i][0].'" value="'.$categorie[$i][0].'/'.$categorie[$i][2].'">'.$categorie[$i][2].'</option>';
         }
     }
     echo "</select>
-    <button type=\"submit\">GO!</button>
+    <button type=\"submit\" class='btn btn-success'>GO!</button>
+    </div>
     </form>";
 }
 include("../include/footer.php");
